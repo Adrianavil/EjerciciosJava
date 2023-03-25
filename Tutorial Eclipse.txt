@@ -1,2 +1,6 @@
 Tutorial Eclipse
 https://www.youtube.com/watch?v=hA90h5qB42w
+Tutorial IntelliJ
+https://www.youtube.com/watch?v=6WtA2dUDvPY
+Tutorial Netbeans
+https://www.youtube.com/watch?v=qHQXUrrubcs
