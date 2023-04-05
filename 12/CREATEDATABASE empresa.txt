@@ -1,0 +1,49 @@
+CREATEDATABASE empresa
+use empresa
+
+CREATE TABLE departamento (
+  id_dep int(11) NOT NULL,
+  nombre varchar(45) ,
+  descripcion varchar(45),
+     PRIMARY KEY (id_dep)
+) ;
+CREATE TABLE empleado (
+  id_emp int(11) NOT NULL,
+  dni varchar(45) ,
+  nombre varchar(45) ,
+  apellido varchar(45),
+  nacionalidad varchar(45),
+  id_dep int,
+  PRIMARY KEY(id_emp),
+  FOREIGN KEY (id_dep) REFERENCES departamento(id_dep)
+) ;
+
+
+
+
+INSERT INTO departamento (id_dep, nombre, descripcion) VALUES
+(1, 'Logistica', 'nada'),
+(2, 'Sistemas', 'nada'),
+(3, 'Compras', 'nada');
+INSERT INTO empleado (id_emp, dni, nombre, apellido, nacionalidad, id_dep) VALUES
+(1, '40123456', 'Juan', 'Romo', 'Boliviana', 1),
+(2, '38159456', 'Victor', 'Morales', 'Argentina', 1),
+(3, '25159456', 'Daniela', 'Miranda', 'Argentina', 1);
+
+
+UPDATE empleado
+SET nacionalidad = 'Italiana'
+WHERE empleado.id_emp=2;
+
+
+DELETE FROM departamento WHERE departamento.nombre='Sistemas'
+
+SELECT empleado.*
+FROM empleado
+INNER JOIN departamento
+ON empleado.id_dep = departamento.id_dep && departamento.nombre='Logistica';
+
+
+SELECT departamento.nombre
+FROM departamento
+ORDER BY departamento.nombre ASC
